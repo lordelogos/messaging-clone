@@ -1,0 +1,31 @@
+.addnewchat {
+	width: calc(100% - 20px);
+	display: flex;
+	align-items: center;
+	padding: 15px 10px;
+	border-bottom: solid 1px #d9d9d9;
+	cursor: pointer;
+}
+
+.addnewchat:hover {
+	background-color: #ededed;
+}
+
+.addnewchat > .MuiSvgIcon-root {
+	font-size: 50px;
+}
+
+.addnewchat > .addnewchat__details {
+	flex: 1;
+	margin-left: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.fixed--bar {
+	background-color: white;
+	z-index: 1;
+	position: sticky;
+	top: 0;
+}

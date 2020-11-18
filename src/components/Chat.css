@@ -1,0 +1,55 @@
+.chat {
+	flex: 0.65;
+	padding: 10px 0 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.chat__nav {
+	padding-top: 0;
+	width: (100% - 20px);
+	padding: 0 10px 5px;
+	display: flex;
+	align-items: center;
+	border-bottom: solid 1px #d9d9d9;
+}
+
+.chat__nav > .MuiSvgIcon-root {
+	font-size: 35px;
+}
+
+.chat__nav > p {
+	flex: 1;
+	margin: 0 10px;
+	font-size: large;
+}
+
+.chat__box {
+	flex: 1;
+	width: 100%;
+	background-image: url("../wbg.jpg");
+	background-repeat: repeat;
+	background-position: center;
+}
+
+.chat__input {
+	display: flex;
+	padding: 10px;
+	align-items: center;
+}
+
+.chat__input > form {
+	display: flex;
+	flex: 1;
+}
+
+.chat__input > form > .MuiInputBase-input {
+	flex: 1;
+}
+
+.chat__input > form > .MuiInput-root {
+	background-color: white;
+	margin: 0 5px;
+	padding: 0 20px;
+	border-radius: 30px;
+}
