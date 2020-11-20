@@ -47,10 +47,7 @@ function Sidebar() {
 			<div className="sidebar__nav">
 				{user ? (
 					<Avatar
-						src={`https://avatar.oxro.io/avatar.svg?name=${
-							user?.displayName[0] +
-							user?.displayName[user.displayName.length - 1]
-						}&length=2`}
+						src={`https://avatar.oxro.io/avatar.svg?name=${user?.displayName}&length=2`}
 					/>
 				) : (
 					<Avatar src={`https://avatar.oxro.io/avatar.svg?name=G&length=1`} />

@@ -20,7 +20,7 @@ function Login() {
 			.createUserWithEmailAndPassword(email, password)
 			.then((res) => {
 				const user = auth.currentUser;
-				history.push("/app");
+				history.push("/");
 				return user.updateProfile({
 					displayName: name,
 				});
