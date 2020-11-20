@@ -8,28 +8,55 @@
 .chat__nav {
 	padding-top: 0;
 	width: (100% - 20px);
-	padding: 0 10px 5px;
+	padding: 3px 0 13px 10px;
 	display: flex;
 	align-items: center;
 	border-bottom: solid 1px #d9d9d9;
 }
 
-.chat__nav > .MuiSvgIcon-root {
+/* .chat__nav > .MuiSvgIcon-root {
 	font-size: 35px;
-}
+} */
 
-.chat__nav > p {
+.chat__title {
 	flex: 1;
 	margin: 0 10px;
 	font-size: large;
+	font-weight: 600;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.last__seen {
+	font-size: small;
+	color: rgba(0, 0, 0, 0.6);
+	/* text-overflow: ellipsis; */
+	/* overflow: hidden; */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .chat__box {
 	flex: 1;
-	width: 100%;
+	width: calc(100% - 20px);
 	background-image: url("../wbg.jpg");
+	padding: 20px 10px;
 	background-repeat: repeat;
 	background-position: center;
+	overflow-y: scroll;
+}
+
+.chat__box::-webkit-scrollbar {
+	width: 6px !important;
+	height: 6px !important;
+}
+.chat__box::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.chat__box::-webkit-scrollbar-track {
+	background: hsla(0, 0%, 100%, 0.1);
 }
 
 .chat__input {
@@ -52,4 +79,48 @@
 	margin: 0 5px;
 	padding: 0 20px;
 	border-radius: 30px;
+}
+.chat__options {
+	position: absolute;
+	top: 90px;
+	right: 0px;
+	background-color: white;
+	width: fit-content;
+	padding: 10px 0;
+	z-index: 2;
+	border-radius: 3px;
+	box-shadow: 0 2px 5px 0 rgba(var(--shadow-rgb), 0.26),
+		0 2px 10px 0 rgba(var(--shadow-rgb), 0.16);
+}
+
+.chat__options > p {
+	width: calc(100% - 50px);
+	text-align: left;
+	padding: 15px;
+	padding-left: 20px;
+	padding-right: 30px;
+	cursor: pointer;
+}
+
+.chat__options > p:hover {
+	background-color: #ededed;
+}
+
+@media screen and (max-width: 600px) {
+	.chat {
+		flex: 1;
+	}
+
+	.chat__options {
+		position: absolute;
+		top: 90px;
+		right: 0px;
+		background-color: white;
+		width: fit-content;
+		padding: 10px 0;
+		z-index: 2;
+		border-radius: 3px;
+		box-shadow: 0 2px 5px 0 rgba(var(--shadow-rgb), 0.26),
+			0 2px 10px 0 rgba(var(--shadow-rgb), 0.16);
+	}
 }

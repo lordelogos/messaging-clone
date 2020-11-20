@@ -1,0 +1,37 @@
+.recieved__chat,
+.sent__chat {
+	background-color: white;
+	padding: 15px 10px;
+	min-width: 80px;
+	width: fit-content;
+	border-radius: 5px;
+	position: relative;
+	font-size: 14.2px;
+	margin-bottom: 10px;
+}
+
+.sent__chat {
+	margin-left: auto;
+	background-color: #dcf8c6;
+}
+
+.recieved__sender,
+.sent__sender {
+	position: absolute;
+	top: 0;
+	font-size: 12px;
+	color: #e542a3;
+}
+
+.recieved__time {
+	position: absolute;
+	bottom: 1px;
+	right: 2px;
+	font-size: 10px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.sent__sender {
+	color: #6bcbef;
+}
