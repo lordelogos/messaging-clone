@@ -38,8 +38,6 @@ function Chat() {
 		}
 	};
 
-	let deleteMessage = () => {};
-
 	let deleteRoom = () => {
 		db.collection("rooms")
 			.doc(roomId.roomId)
@@ -140,8 +138,16 @@ function Chat() {
 				</IconButton>
 				{options ? (
 					<div className="chat__options" ref={optionRef}>
-						<p onClick={deleteMessage}>Delete Messages</p>
 						<p onClick={deleteRoom}>Delete Room</p>
+
+						<p onClick={() => setOptions(false)}>
+							<a
+								href="https://github.com/lordelogos/messaging-clone/issues/new"
+								target="_blank"
+								rel="noreferrer">
+								Request a Feature
+							</a>
+						</p>
 					</div>
 				) : (
 					""

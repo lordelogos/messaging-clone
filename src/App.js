@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect } from "react";
 import Chat from "./components/Chat";
 import Sidebar from "./components/Sidebar";
+import Default from "./components/Default";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "./components/firebase";
@@ -41,11 +42,13 @@ function App() {
 					<Route path="/login">
 						<Login />
 					</Route>
+					<Route path="/rooms/:roomId">
+						<Sidebar />
+						<Chat />
+					</Route>
 					<Route path="/">
 						<Sidebar />
-						<Route path="/rooms/:roomId">
-							<Chat />
-						</Route>
+						<Default />
 					</Route>
 				</Switch>
 			</Router>
