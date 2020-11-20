@@ -19,7 +19,7 @@ function Login() {
 		auth
 			.signInWithEmailAndPassword(email, password)
 			.then((auth) => {
-				history.push("/app");
+				history.push("/");
 			})
 			.catch((e) => alert(e.message));
 	};

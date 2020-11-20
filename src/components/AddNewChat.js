@@ -16,6 +16,7 @@ function AddNewChat({ addNewChat, id, name, last }) {
 				db.collection("rooms").add({
 					name: chatName,
 					timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+					created_by: user.uid,
 				});
 			}
 		} else {

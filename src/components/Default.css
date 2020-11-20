@@ -63,3 +63,9 @@
 .default__contact > a {
 	text-decoration: underline;
 }
+
+@media screen and (max-width: 600px) {
+	.default {
+		flex: 1;
+	}
+}

@@ -39,14 +39,20 @@ function Chat() {
 	};
 
 	let deleteRoom = () => {
+		setOptions(false);
 		db.collection("rooms")
 			.doc(roomId.roomId)
 			.onSnapshot((snapshot) =>
 				// snapshot.docs.remove().then(console.log("removed"))
-				snapshot.ref.delete().then(window.location.replace("/"))
+				{
+					if (snapshot.data().created_by === user.uid) {
+						snapshot.ref.delete().then(window.location.replace("/"));
+					} else {
+						alert("only creators can destroy");
+					}
+				}
 			);
 		// delete room logic
-		setOptions(false);
 	};
 
 	useEffect(() => {

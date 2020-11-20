@@ -12,6 +12,30 @@ import CreateUser from "./components/CreateUser";
 function App() {
 	const [{ user }, dispatch] = useStateValue();
 
+	// let getFullScreen = () => {
+	// 	return (
+	// 		document.fullscreenElement ||
+	// 		document.webkitFullscreenElement ||
+	// 		document.mozFullscreenElement ||
+	// 		document.msFullscreenElement
+	// 	);
+	// };
+
+	// let toggleFullScreen = () => {
+	// 	if (getFullScreen()) {
+	// 		document.exitFullscreen();
+	// 	} else {
+	// 		document.documentElement.requestFullscreen().catch(console.log);
+	// 	}
+	// };
+
+	// useEffect(() => {
+	// 	document.addEventListener("dblclick", toggleFullScreen);
+	// 	return () => {
+	// 		document.removeEventListener("dblclick", toggleFullScreen);
+	// 	};
+	// }, []);
+
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((authUser) => {
 			if (authUser) {
