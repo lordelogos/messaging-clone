@@ -10,6 +10,7 @@ function Default() {
 	return (
 		<div className="default" onClick={openToggle}>
 			<div className="default__card">
+				<p className="idid">Tap to toggle Menu</p>
 				<div className="default__img" />
 				<p className="default__title">Stay connected on the go</p>
 				<p className="default__rules">

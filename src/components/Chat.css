@@ -106,7 +106,14 @@
 	background-color: #ededed;
 }
 
+.back-btn {
+	display: none !important;
+}
+
 @media screen and (max-width: 600px) {
+	.back-btn {
+		display: block !important;
+	}
 	.chat {
 		flex: 1;
 	}

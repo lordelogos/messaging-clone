@@ -5,6 +5,7 @@ import { Avatar } from "@material-ui/core";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import IconButton from "@material-ui/core/IconButton";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
 import MoodIcon from "@material-ui/icons/Mood";
 import { Input } from "@material-ui/core";
@@ -121,12 +122,14 @@ function Chat() {
 	return (
 		<div className="chat">
 			<div className="chat__nav">
-				<IconButton onClick={openToggle}>
-					<Avatar
-						size="small"
-						src={`https://avatars.dicebear.com/api/human/${roomId.roomId}.svg`}
-					/>
+				<IconButton onClick={openToggle} className="back-btn">
+					<ArrowBackIcon />
 				</IconButton>
+				<Avatar
+					size="small"
+					src={`https://avatars.dicebear.com/api/human/${roomId.roomId}.svg`}
+				/>
+
 				<div className="chat__title">
 					<p>{roomName}</p>
 					<p className="last__seen">
