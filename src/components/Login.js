@@ -34,6 +34,7 @@ function Login() {
 						fullWidth={true}
 						placeholder="Email"
 						autoComplete="true"
+						autoFocus={true}
 						required
 						onChange={(e) => setEmail(e.target.value)}
 					/>

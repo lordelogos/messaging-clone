@@ -4,25 +4,10 @@ import { Link } from "react-router-dom";
 import { db } from "./firebase";
 import "./AddNewChat.css";
 import { useStateValue } from "./StateProvider";
-import firebase from "firebase";
 
 function AddNewChat({ addNewChat, id, name, last }) {
 	const [{ user }] = useStateValue();
 	let [message, setMessage] = useState([]);
-	let createChat = () => {
-		if (user) {
-			let chatName = prompt("Please enter a name for the chatRoom");
-			if (chatName !== "" && chatName !== null) {
-				db.collection("rooms").add({
-					name: chatName,
-					timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-					created_by: user.uid,
-				});
-			}
-		} else {
-			alert("You must be signed in to create new chat");
-		}
-	};
 
 	useEffect(() => {
 		if (id) {
@@ -54,9 +39,11 @@ function AddNewChat({ addNewChat, id, name, last }) {
 			</div>
 		</Link>
 	) : (
-		<div className="addnewchat fixed--bar" onClick={createChat}>
-			<h2>Add New Chat</h2>
-		</div>
+		<Link to={user ? "/createRoom" : "/login"}>
+			<div className="addnewchat fixed--bar">
+				<h2>Add New Chat</h2>
+			</div>
+		</Link>
 	);
 }
 

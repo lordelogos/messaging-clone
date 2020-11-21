@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Chat.css";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import IconButton from "@material-ui/core/IconButton";
@@ -18,6 +18,7 @@ import firebase from "firebase";
 import Moment from "moment";
 
 function Chat() {
+	let history = useHistory();
 	let [{ user }] = useStateValue();
 	let [emoji, setEmoji] = useState(false);
 	let [options, setOptions] = useState(false);
@@ -43,18 +44,24 @@ function Chat() {
 		setOptions(false);
 		db.collection("rooms")
 			.doc(roomId.roomId)
-			.onSnapshot((snapshot) =>
-				// snapshot.docs.remove().then(console.log("removed"))
-				{
-					if (snapshot.data().created_by === user.uid) {
-						snapshot.ref.delete().then(window.location.replace("/"));
-					} else {
-						alert("only creators can destroy");
-					}
+			.onSnapshot((snapshot) => {
+				if (snapshot.data().created_by === user.uid) {
+					snapshot.ref.delete().then(history.replace("/"));
+				} else {
+					document.querySelector(".error").textContent =
+						"only creators can destroy";
+					document.querySelector(".error").style.display = "block";
+					setTimeout(() => {
+						document.querySelector(".error").style.display = "none";
+					}, 1500);
 				}
-			);
+			});
 		// delete room logic
 	};
+
+	useEffect(() => {
+		document.querySelector(".viewmsg").scrollIntoView();
+	}, [chats]);
 
 	useEffect(() => {
 		if (roomId) {
@@ -77,6 +84,7 @@ function Chat() {
 
 	let addChat = (e) => {
 		e.preventDefault();
+		setEmoji(false);
 		if (message !== "" && message !== null) {
 			db.collection("rooms").doc(roomId.roomId).collection("messages").add({
 				name: user.displayName,
@@ -163,6 +171,7 @@ function Chat() {
 				)}
 			</div>
 			<div className="chat__box" onClick={closeToggle}>
+				<div className="error">only Creators can destroy!!!</div>
 				{chats.map((chat) => (
 					<Messages
 						sent={chat.id === user?.uid}
@@ -172,6 +181,7 @@ function Chat() {
 						key={chat.message + chat.timestamp}
 					/>
 				))}
+				<div className="viewmsg"></div>
 			</div>
 			<div className="chat__input">
 				<IconButton

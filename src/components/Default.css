@@ -32,6 +32,13 @@
 
 .idid {
 	color: #525252;
+	visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+	.idid {
+		visibility: visible;
+	}
 }
 
 .default__title {
@@ -64,12 +71,30 @@
 	font-weight: 600;
 }
 
-.default__contact > a {
+.default__contact > a:hover {
 	text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {
 	.default {
 		flex: 1;
+	}
+}
+.tutorial {
+	position: fixed;
+	top: 2px;
+	right: 30px;
+	/* margin-top: 15px; */
+	width: fit-content;
+	font-size: 16px;
+	font-weight: bold;
+	z-index: 2;
+	display: none;
+	color: #525252;
+}
+
+@media screen and (max-width: 600px) {
+	.tutorial {
+		display: block;
 	}
 }

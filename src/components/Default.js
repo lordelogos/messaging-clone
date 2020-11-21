@@ -9,6 +9,7 @@ function Default() {
 
 	return (
 		<div className="default" onClick={openToggle}>
+			<div className="tutorial">Tap to toggle fullScreen &rarr;</div>
 			<div className="default__card">
 				<p className="idid">Tap to toggle Menu</p>
 				<div className="default__img" />

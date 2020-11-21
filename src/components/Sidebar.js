@@ -6,12 +6,13 @@ import { Button } from "@material-ui/core";
 import { Input } from "@material-ui/core";
 import AddNewChat from "./AddNewChat";
 import { auth, db } from "./firebase";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+	let history = useHistory();
 	let [{ user }] = useStateValue();
 	let [search, setSearch] = useState("");
-	let seed = user?.uid;
 
 	let [rooms, setRooms] = useState([]);
 
@@ -31,16 +32,12 @@ function Sidebar() {
 
 	let handleSignOut = () => {
 		if (user) {
-			let res = window.confirm("Are you sure you want to leave?");
-			if (res) {
-				auth.signOut();
-				// window.location.replace("./login");
-			}
+			auth.signOut();
 		}
 	};
 
 	let gotoLogin = () => {
-		window.location.replace("/login");
+		history.push("/login");
 	};
 	return (
 		<div className="sidebar active">
