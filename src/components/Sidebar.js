@@ -40,7 +40,7 @@ function Sidebar() {
 		history.push("/login");
 	};
 	return (
-		<div className="sidebar active">
+		<div className="sidebar">
 			<div className="sidebar__nav">
 				{user ? (
 					<Avatar

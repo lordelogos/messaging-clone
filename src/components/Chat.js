@@ -16,6 +16,7 @@ import { db } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import firebase from "firebase";
 import Moment from "moment";
+import { useSwipeable } from "react-swipeable";
 
 function Chat() {
 	let history = useHistory();
@@ -29,15 +30,20 @@ function Chat() {
 	const optionRef = useRef(null);
 	const roomId = useParams();
 
-	let openToggle = () => {
-		document.querySelector(".sidebar").classList.toggle("active");
+	const toggleOptions = () => {
+		options ? setOptions(false) : setOptions(true);
 	};
 
-	let closeToggle = () => {
-		let menu = document.querySelector(".sidebar");
-		if (menu.classList.contains("active")) {
-			menu.classList.remove("active");
-		}
+	const handlers = useSwipeable({
+		onSwipedLeft: () => openToggle(),
+		onSwipedRight: () => openToggle(),
+		preventDefaultTouchmoveEvent: true,
+		trackMouse: false,
+	});
+
+	let openToggle = () => {
+		console.log("clicked");
+		document.querySelector(".sidebar").classList.toggle("active");
 	};
 
 	let deleteRoom = () => {
@@ -146,11 +152,7 @@ function Chat() {
 							: ""}
 					</p>
 				</div>
-				<IconButton
-					disabled={user ? false : true}
-					onClick={() => {
-						setOptions(true);
-					}}>
+				<IconButton disabled={user ? false : true} onClick={toggleOptions}>
 					<MoreVertRoundedIcon />
 				</IconButton>
 				{options ? (
@@ -170,7 +172,7 @@ function Chat() {
 					""
 				)}
 			</div>
-			<div className="chat__box" onClick={closeToggle}>
+			<div className="chat__box" {...handlers}>
 				<div className="error">only Creators can destroy!!!</div>
 				{chats.map((chat) => (
 					<Messages

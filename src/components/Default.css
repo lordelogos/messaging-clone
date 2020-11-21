@@ -80,21 +80,3 @@
 		flex: 1;
 	}
 }
-.tutorial {
-	position: fixed;
-	top: 2px;
-	right: 30px;
-	/* margin-top: 15px; */
-	width: fit-content;
-	font-size: 16px;
-	font-weight: bold;
-	z-index: 2;
-	display: none;
-	color: #525252;
-}
-
-@media screen and (max-width: 600px) {
-	.tutorial {
-		display: block;
-	}
-}

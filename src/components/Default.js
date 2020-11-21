@@ -1,17 +1,24 @@
 import React from "react";
 import "./Default.css";
+import { useSwipeable } from "react-swipeable";
 
 function Default() {
+	const handlers = useSwipeable({
+		onSwipedLeft: () => openToggle(),
+		onSwipedRight: () => openToggle(),
+		preventDefaultTouchmoveEvent: true,
+		trackMouse: true,
+	});
+
 	let openToggle = () => {
 		console.log("clicked");
 		document.querySelector(".sidebar").classList.toggle("active");
 	};
 
 	return (
-		<div className="default" onClick={openToggle}>
-			<div className="tutorial">Tap to toggle fullScreen &rarr;</div>
+		<div className="default" {...handlers}>
 			<div className="default__card">
-				<p className="idid">Tap to toggle Menu</p>
+				<p className="idid">Swipe right to show menu</p>
 				<div className="default__img" />
 				<p className="default__title">Stay connected on the go</p>
 				<p className="default__rules">
