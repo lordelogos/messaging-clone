@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+# The project can be viewed [HERE](https://whatsapp-clone-beb5d.web.app/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
